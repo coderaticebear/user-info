@@ -19,7 +19,7 @@
             let password = $('#password').val();
 
             $.ajax({
-                url: 'http://localhost:8000/api/auth/login',
+                url: 'https://tiny-gold-dugong-gown.cyclic.app/api/auth/login',
                 method: 'POST',
                 data : {
                     username: username,
@@ -29,7 +29,7 @@
                     console.log(result);
                     let token = result.token
                     localStorage.setItem("authToken", token)
-                    window.location.href = 'http://localhost:8000/api/auth/get'
+                    window.location.href = 'https://tiny-gold-dugong-gown.cyclic.app/api/auth/get'
 
                 }
             })

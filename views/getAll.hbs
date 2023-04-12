@@ -19,7 +19,7 @@
     jQuery(document).ready(() => {
         let token = localStorage.getItem('authToken')
         $.ajax({
-                url: 'http://localhost:8000/api/auth/get',
+                url: 'https://tiny-gold-dugong-gown.cyclic.app/api/auth/get',
                 method: 'POST',
                 headers: {'Authorization' : token},
                 success: (result) => {
