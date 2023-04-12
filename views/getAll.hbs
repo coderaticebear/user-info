@@ -1,0 +1,41 @@
+<div class="container">
+  <h2 class="text-center">All Data</h2>
+  <table class="table table-striped table-bordered text-center mx-auto">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password(Encrytped)</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<script>
+    jQuery(document).ready(() => {
+        let token = localStorage.getItem('authToken')
+        $.ajax({
+                url: 'http://localhost:8000/api/auth/get',
+                method: 'POST',
+                headers: {'Authorization' : token},
+                success: (result) => {
+                    let string = '';
+                    $.each(result, (i,e) => {
+                        console.log(e)
+                        string += '<tr>'
+                        string += '<td>' + e.name + '</td>'
+                        string += '<td>' + e.username + '</td>'
+                        string += '<td>' + e.password + '</td>'
+                        string += '</tr>'
+
+                    })
+
+                    $('tbody').html(string)
+                }
+            })
+    })
+</script>
